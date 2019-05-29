@@ -1,4 +1,4 @@
-public class DateV2
+public class Date
 {
    private int year;
    private int month;
@@ -6,7 +6,7 @@ public class DateV2
    private int hour;
    private int minute;
    
-   public DateV2(int year, int month, int day, int hour, int minute)
+   public Date(int year, int month, int day, int hour, int minute)
    {
       this.year = year;
       this.month = month;
@@ -56,18 +56,18 @@ public class DateV2
    
    public boolean equals(Object obj)
    {
-      if(!(obj instanceof DateV2))
+      if(!(obj instanceof Date))
       {
          return false;
       }
       
-      DateV2 other = (DateV2) obj;
+      Date other = (Date) obj;
       
       return year == other.year && month == other.month && day == other.day && hour == other.hour && minute == other.minute;
    }
    
-   public DateV2 copy()
+   public Date copy()
    {
-      return new DateV2(year, month, day, hour, minute);
+      return new Date(year, month, day, hour, minute);
    }
 }

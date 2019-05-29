@@ -1,17 +1,19 @@
 
-public class MatchV2
+public class Match
 {
    private String opponent;
    private int substitutePlayer;
    private String matchType;
-   private DateV2 date;
+   private Date date;
+   private PlayerList players;
 
-   public MatchV2(String opponent, int substitutePlayer, String matchType)
+   public Match(String opponent, int substitutePlayer, String matchType)
    {
       this.opponent = opponent;
       this.matchType = matchType;
       this.substitutePlayer = substitutePlayer;
       this.date = null;
+      this.players = null;
    }
 
    public void setSubstitutePlayer(int substitutePlayer)
@@ -24,9 +26,44 @@ public class MatchV2
       this.opponent = opponent;
    }
 
-   public void setDate(DateV2 date)
+   public void setDate(Date date)
    {
       this.date = date;
+   }
+   
+   public void setPLayers(Player player)
+   {
+      if(isFriendly())
+      {
+      for(int i = 0; i < players.getNumOfPlayers();++i)
+      {
+         players.addPlayer(player);
+      }
+      }
+      else if(isCup())
+      {
+         for(int i = 0; i <16;++i)
+         {
+            players.addPlayer(player);
+         }
+      }
+      else if(isLeague())
+      {
+         for(int i = 0; i <15;++i)
+         {
+            players.addPlayer(player);
+         }
+      }
+      else
+      {}
+   }
+   
+   public PlayerList getPlayerList()
+   {
+      for(int i = 0; i<players.getNumOfPlayers(); ++i)
+      {
+         return players.getPlayer();
+      }
    }
 
    public int getSubstitutePlayer()
@@ -88,7 +125,7 @@ public class MatchV2
       return "Non-specified Match";
    }
 
-   public int numOfsubPlayers()
+   public int numOfSubPlayers()
    {
 
       if (isCup())
@@ -121,12 +158,12 @@ public class MatchV2
 
    public boolean equals(Object obj)
    {
-      if (!(obj instanceof MatchV2))
+      if (!(obj instanceof Match))
       {
          return false;
       }
 
-      MatchV2 other = (MatchV2) obj;
+      Match other = (Match) obj;
 
       return opponent.equals(other.opponent)
             && matchType.equals(other.matchType)
