@@ -70,8 +70,8 @@ public class Match implements Serializable
     * @param player the player details of the Player object.
     * @param players consist of object Playerlist. 
     * @param isFriendly add Player objcets to the PlayerList.
-    * @param isCup add Player objcets to the PlayerList, if PlayerList consist 16 or less.
-    * @param isLeague add Player objcets to the PlayerList, if PlayerList consist 15 or less.
+    * @param isCup add Player objcets to the PlayerList, if PlayerList consist of 16 or less Player objects.
+    * @param isLeague add Player objcets to the PlayerList, if PlayerList consist of 15 or less Player objects.
     */
 
    public void setPLayers(Player player)
@@ -106,7 +106,7 @@ public class Match implements Serializable
    
    /**
     * Creates an Player object array.
-    * @return all players from the Player array object. 
+    * @return all players from the PlayerList object to array. 
     */
 
    public Player[] getMatchPlayerList()
@@ -151,7 +151,7 @@ public class Match implements Serializable
 
    public boolean isFriendly()
    {
-      if (matchType.equals("Friendly")
+      if (matchType.equals("Friendly"))
       {
          return true;
       }
@@ -164,7 +164,7 @@ public class Match implements Serializable
 
    public boolean isCup()
    {
-      if (matchType.equals("Cup")
+      if (matchType.equals("Cup"))
       {
          return true;
       }
@@ -177,32 +177,10 @@ public class Match implements Serializable
 
    public boolean isLeague()
    {
-      if (matchType.equals("League")
+      if (matchType.equals("League"))
       {
          return true;
       }
-   }
-   
-   /**
-    * Delete?!?
-    * @return
-    */
-
-   public String displayType()
-   {
-      if (isFriendly())
-      {
-         return "Friendly";
-      }
-      else if (isCup())
-      {
-         return "Cup";
-      }
-      else if (isLeague())
-      {
-         return "League";
-      }
-      return "Non-specified Match";
    }
    
    /**
