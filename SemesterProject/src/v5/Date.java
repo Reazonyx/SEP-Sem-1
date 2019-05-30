@@ -110,7 +110,7 @@ public class Date
    
    /**
     * Compares year, month, day, hour and minute of two Date's.
-    * @param boolean returns true if the obj argument is equal(an instance of) to Object, otherwise false.
+    * @param boolean returns true if the obj argument is equal or instance of Object, otherwise false.
     * @param obj the object which is refered to comparing.
     * @return true if the given objects is equal to this Date.
     */
