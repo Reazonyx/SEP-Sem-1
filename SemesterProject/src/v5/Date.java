@@ -31,7 +31,7 @@ public class Date
    }
    
    /**
-    * 5-argument constructor that sets year, month, day, hour and minute to the class Date.
+    * Sets the year, month, day, hour and minute to the class Date.
     * @param year what the Date's year will be set to.
     * @param month what the Date's month will be set to.
     * @param day what the Date's day will be set to.
