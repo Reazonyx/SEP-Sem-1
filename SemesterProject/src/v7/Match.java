@@ -145,6 +145,15 @@ public class Match implements Serializable
    }
    
    /**
+    * Gets the Match's date.
+    * @return Date object of Match's date.
+    */
+   
+   public Date getDate() {
+      return date;
+   }
+   
+   /**
     * Checks which match type is selected.
     * @return true if Friendly is selected, otherwise false.
     */

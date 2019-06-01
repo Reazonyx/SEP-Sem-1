@@ -41,6 +41,15 @@ public class MatchList implements Serializable
    }
    
    /**
+    * Returns the size of the array list.
+    * @return int of size of the array list.
+    */
+
+   public int getSize() {
+      return matchs.size();
+   }
+   
+   /**
     * Gets a Match object from position index from the list.
     * @param index the position in the list of the Match object.
     * @return the Match object at position index.

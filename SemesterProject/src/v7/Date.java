@@ -1,3 +1,5 @@
+import java.util.GregorianCalendar;
+
 /**
  * A class representing a Date, with a date and time.
  * @author krogh
@@ -60,7 +62,7 @@ public class Date
    
    /**
     * Gets the Date's month.
-    * @return the Date's month.
+    * @returnthe Date's month.
     */
    
    public int getMonth()
@@ -110,7 +112,7 @@ public class Date
    
    /**
     * Compares year, month, day, hour and minute of two Date's.
-    * @param boolean returns true if the obj argument is equal or instance of Object, otherwise false.
+    * @param boolean returns true if the obj argument is equal(an instance of) to Object, otherwise false.
     * @param obj the object which is refered to comparing.
     * @return true if the given objects is equal to this Date.
     */
@@ -126,7 +128,38 @@ public class Date
       
       return year == other.year && month == other.month && day == other.day && hour == other.hour && minute == other.minute;
    }
+
+   public static Date today()
+   {
+
+      GregorianCalendar currentDate = new GregorianCalendar();
+      int currentDay = currentDate.get(GregorianCalendar.DATE);
+      int currentMonth = currentDate.get(GregorianCalendar.MONTH) + 1;
+      int currentYear = currentDate.get(GregorianCalendar.YEAR);
+      int currentHour = currentDate.get(GregorianCalendar.HOUR);
+      int currentMinute = currentDate.get(GregorianCalendar.MINUTE);
+
+      return new Date(currentDay, currentMonth, currentYear,currentHour,currentMinute);
+   }
    
+   public boolean isBefore()
+   {
+      if (year < Date.today().year)
+         return true;
+      else if (year == Date.today().year && month < Date.today().month)
+         return true;
+      else if (year == Date.today().year && month == Date.today().month && day < Date.today().day)
+         return true;
+      else if(year == Date.today().year && month == Date.today().month && day == Date.today().day && hour < Date.today().hour) {
+         return true;
+      }
+      else if(year == Date.today().year && month == Date.today().month && day == Date.today().day && hour == Date.today().hour && minute < Date.today().minute) {
+         return true;
+      }
+      else {
+         return false;
+      }
+   }
    /**
     * Creates a copy of the Date object.
     * @return a copy of the five-argument constructor.
