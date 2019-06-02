@@ -22,7 +22,7 @@
                <tabs>
                   <Tab text="Match List">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@../../../Desktop/tab.css">
                            <children>
                               <TableView prefHeight="473.0" prefWidth="500.0">
                                 <columns>
