@@ -5,7 +5,6 @@ import java.io.Serializable;
  * @author krogh
  * @version 
  */
-
 public class Match implements Serializable
 {
    private String opponent;
@@ -24,9 +23,7 @@ public class Match implements Serializable
     * @param matchType the Match's match type.
     * @param date the Match's date.
     */
-
-   public Match(String opponent, int substitutePlayer, String matchType,
-         Date date)
+   public Match(String opponent, int substitutePlayer, String matchType, Date date)
    {
       this.opponent = opponent;
       this.matchType = matchType;
@@ -39,7 +36,6 @@ public class Match implements Serializable
     * Sets an integer of the substitue players for the Match.
     * @param substitutePlayer what the Match's substitute players will be set to.
     */
-
    public void setSubstitutePlayer(int substitutePlayer)
    {
       this.substitutePlayer = substitutePlayer;
@@ -49,7 +45,6 @@ public class Match implements Serializable
     * Sets a String of the Match's opponent.
     * @param opponent what the Match's opponent will be set to.
     */
-
    public void setOpponent(String opponent)
    {
       this.opponent = opponent;
@@ -59,7 +54,6 @@ public class Match implements Serializable
     * Sets the date for the Match
     * @param date what the date and time of the Date object will be set to.
     */
-
    public void setDate(Date date)
    {
       this.date = date;
@@ -73,7 +67,6 @@ public class Match implements Serializable
     * @param isCup add Player objcets to the PlayerList, if PlayerList consist of 16 or less Player objects.
     * @param isLeague add Player objcets to the PlayerList, if PlayerList consist of 15 or less Player objects.
     */
-
    public void setPLayers(Player player)
    {
       if (!players.contains(player))
@@ -108,7 +101,6 @@ public class Match implements Serializable
     * Creates an Player object array.
     * @return all players from the PlayerList object to array. 
     */
-
    public Player[] getMatchPlayerList()
    {
       return players.getAllPlayers();
@@ -118,7 +110,6 @@ public class Match implements Serializable
     * Gets the number of substitute players.
     * @return integers of Match's substitute players.
     */
-
    public int getSubstitutePlayer()
    {
       return substitutePlayer;
@@ -128,7 +119,6 @@ public class Match implements Serializable
     * Gets the Match's opponent.
     * @return String of Match's opponent.
     */
-
    public String getOpponent()
    {
       return opponent;
@@ -138,7 +128,6 @@ public class Match implements Serializable
     * Gets the Match's match type.
     * @return String of Match's match type.
     */
-
    public String getMatchType()
    {
       return matchType;
@@ -147,8 +136,7 @@ public class Match implements Serializable
    /**
     * Gets the Match's date.
     * @return Date object of Match's date.
-    */
-   
+    */ 
    public Date getDate() {
       return date;
    }
@@ -157,7 +145,6 @@ public class Match implements Serializable
     * Checks which match type is selected.
     * @return true if Friendly is selected, otherwise false.
     */
-
    public boolean isFriendly()
    {
       if (matchType.equals("Friendly"))
@@ -171,7 +158,6 @@ public class Match implements Serializable
     * Checks which match type is selected.
     * @return true if Cup is selected, otherwise false.
     */
-
    public boolean isCup()
    {
       if (matchType.equals("Cup"))
@@ -180,12 +166,11 @@ public class Match implements Serializable
       }
       return false;
    }
-   
+ 
    /**
     * Checks which match type is selected.
     * @return true if League is selected, otherwise false.
     */
-
    public boolean isLeague()
    {
       if (matchType.equals("League"))
@@ -199,7 +184,6 @@ public class Match implements Serializable
     * Gets the number of substitute players that are in the Match.
     * @return the number of substitute players, otherwise -1.
     */
-
    public int numOfSubPlayers()
    {
 
@@ -230,7 +214,6 @@ public class Match implements Serializable
     * Gets a String representation of the Match
     * @return a String representation of the Match in the format: "opponent match type substitutePlayer date"
     */
-
    public String toString()
    {
       return opponent + " " + matchType + " " + substitutePlayer + " " + date;
@@ -242,7 +225,6 @@ public class Match implements Serializable
     * @param obj the object which is refered to comparing.
     * @return true if the given objects is equal to this Date.
     */
-
    public boolean equals(Object obj)
    {
       if (!(obj instanceof Match))

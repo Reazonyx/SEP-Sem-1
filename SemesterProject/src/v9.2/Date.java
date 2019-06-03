@@ -5,7 +5,6 @@ import java.util.GregorianCalendar;
  * @author krogh
  * @version 
  */
-
 public class Date
 {
    private int year;
@@ -22,7 +21,6 @@ public class Date
     * @param hour is the Date's hour.
     * @param minute is the Date's minute.
     */
-   
    public Date(int year, int month, int day, int hour, int minute)
    {
       this.year = year;
@@ -33,14 +31,13 @@ public class Date
    }
    
    /**
-    * 5-argument constructor that sets year, month, day, hour and minute to the class Date.
+    * 5-argument method that sets year, month, day, hour and minute to the class Date.
     * @param year what the Date's year will be set to.
     * @param month what the Date's month will be set to.
     * @param day what the Date's day will be set to.
     * @param hour what the Date's hour will be set to.
     * @param minute what the Date's minute will be set to.
     */
-   
    public void set(int year, int month, int day, int hour, int minute)
    {
       this.year = year;
@@ -54,7 +51,6 @@ public class Date
     * Gets the Date's year.
     * @return the Date's year.
     */
-   
    public int getYear()
    {
       return year;
@@ -62,9 +58,8 @@ public class Date
    
    /**
     * Gets the Date's month.
-    * @returnthe Date's month.
+    * @return the Date's month.
     */
-   
    public int getMonth()
    {
       return month;
@@ -74,7 +69,6 @@ public class Date
     * Gets the Date's day.
     * @return the Date's day.
     */
-   
    public int getDay()
    {
       return day;
@@ -84,7 +78,6 @@ public class Date
     * Gets the Date's hour.
     * @return the Date's hour.
     */
-   
    public int getHour()
    {
       return hour;
@@ -94,7 +87,6 @@ public class Date
     * Gets the Date's minute.
     * @return the Date's minute.
     */
-   
    public int getMinute()
    {
       return minute;
@@ -104,7 +96,6 @@ public class Date
     * Gets a String representation of the Date.
     * @return a String representation of the Date in the format: "Year: year, month month, day day, hour hour, minute minute"
     */
-   
    public String toString()
    {
       return "Year: " + year + ", month: " + month + ", day: " + day + ", hour: " + hour + ", minute: " + minute;
@@ -116,7 +107,6 @@ public class Date
     * @param obj the object which is refered to comparing.
     * @return true if the given objects is equal to this Date.
     */
-   
    public boolean equals(Object obj)
    {
       if(!(obj instanceof Date))
@@ -129,6 +119,10 @@ public class Date
       return year == other.year && month == other.month && day == other.day && hour == other.hour && minute == other.minute;
    }
 
+   /**
+    * A static method which returns object of current date
+    * @return Date object (current date)
+    */
    public static Date today()
    {
 
@@ -141,30 +135,43 @@ public class Date
 
       return new Date(currentDay, currentMonth, currentYear,currentHour,currentMinute);
    }
-   
+ 
+   /**
+    * Checks if date is before date given
+    * @return boolean
+    */
    public boolean isBefore()
    {
       if (year < Date.today().year)
+      {
          return true;
+      }
       else if (year == Date.today().year && month < Date.today().month)
+      {
          return true;
+      }
       else if (year == Date.today().year && month == Date.today().month && day < Date.today().day)
-         return true;
-      else if(year == Date.today().year && month == Date.today().month && day == Date.today().day && hour < Date.today().hour) {
-         return true;
-      }
-      else if(year == Date.today().year && month == Date.today().month && day == Date.today().day && hour == Date.today().hour && minute < Date.today().minute) {
+      {
          return true;
       }
-      else {
+      else if(year == Date.today().year && month == Date.today().month && day == Date.today().day && hour < Date.today().hour)
+      {
+         return true;
+      }
+      else if(year == Date.today().year && month == Date.today().month && day == Date.today().day && hour == Date.today().hour && minute < Date.today().minute) 
+      {
+         return true;
+      }
+      else 
+      {
          return false;
       }
    }
+   
    /**
     * Creates a copy of the Date object.
     * @return a copy of the five-argument constructor.
     */
-   
    public Date copy()
    {
       return new Date(year, month, day, hour, minute);

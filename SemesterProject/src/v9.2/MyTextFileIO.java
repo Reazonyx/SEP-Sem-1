@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class MyTextFileIO
 {
+ 
    /**
    * Writes the given string to a file with the given file name.
    * @param fileName the name and path of the file to write to

@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * @author krogh
  * @version 
  */
-
 public class MatchList implements Serializable
 {
    private ArrayList<Match> matchs;
@@ -14,7 +13,6 @@ public class MatchList implements Serializable
    /**
     * No-argument constructor initializing the MatchList.
     */
-
    public MatchList()
    {
       matchs = new ArrayList<Match>();
@@ -24,7 +22,6 @@ public class MatchList implements Serializable
     * Adds a Match to the list.
     * @param match the match to add to the list.
     */
-
    public void addMatch(Match match)
    {
       matchs.add(match);
@@ -34,7 +31,6 @@ public class MatchList implements Serializable
     * Removes a match from the list.
     * @param match the match to be removed from the list.
     */
-
    public void removeMatch(Match match)
    {
       matchs.remove(match);
@@ -44,7 +40,6 @@ public class MatchList implements Serializable
     * Returns the size of the array list.
     * @return int of size of the array list.
     */
-
    public int getSize() {
       return matchs.size();
    }
@@ -54,7 +49,6 @@ public class MatchList implements Serializable
     * @param index the position in the list of the Match object.
     * @return the Match object at position index.
     */
-
    public Match getMatch(int index)
    {
       return matchs.get(index);
@@ -64,11 +58,6 @@ public class MatchList implements Serializable
     * Gets a String representation of the MatchList
     * @return a String containing information about all Match objects in the list - each Match object is continued on a new line, with the new line charater.
     */
-
-   public int getNumOfMatches() {
-      return matchs.size();
-   }
-   
    public String toString()
    {
       String returnStr = "";
@@ -80,5 +69,4 @@ public class MatchList implements Serializable
 
       return returnStr;
    }
-
 }

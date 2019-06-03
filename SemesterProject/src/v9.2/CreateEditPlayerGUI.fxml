@@ -37,12 +37,12 @@
       </VBox>
       <VBox alignment="TOP_CENTER" prefWidth="440.0">
          <children>
-            <TableView fx:id="playerTableView" prefHeight="300.0">
+            <TableView fx:id="playerTableView" onSort="#handle" prefHeight="300.0">
               <columns>
-                <TableColumn fx:id="nameColumn" prefWidth="110.0" text="Name" />
-                <TableColumn fx:id="numberColumn" prefWidth="110.0" text="Nr." />
-                  <TableColumn fx:id="positionColumn" prefWidth="110.0" text="Position" />
-                  <TableColumn fx:id="noteColumn" prefWidth="110.0" text="Note" />
+                <TableColumn fx:id="nameColumn" onEditCommit="#onEditChanged" prefWidth="110.0" text="Name" />
+                <TableColumn fx:id="numberColumn" onEditCommit="#onEditChanged" prefWidth="110.0" text="Nr." />
+                  <TableColumn fx:id="positionColumn" onEditCommit="#onEditChanged" prefWidth="110.0" text="Position" />
+                  <TableColumn fx:id="noteColumn" onEditCommit="#onEditChanged" prefWidth="110.0" text="Note" />
               </columns>
                <VBox.margin>
                   <Insets right="10.0" top="20.0" />
@@ -55,12 +55,12 @@
             </Button>
             <HBox alignment="BOTTOM_CENTER" prefWidth="420.0">
                <children>
-                  <Button fx:id="removeButton" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Remove">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#removeButton" prefHeight="40.0" prefWidth="150.0" text="Remove">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Save">
+                  <Button fx:id="saveButton" alignment="CENTER" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="150.0" text="Save">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

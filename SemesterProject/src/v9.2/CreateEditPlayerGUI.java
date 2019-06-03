@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 public class CreateEditPlayerGUI extends Application
@@ -36,7 +39,7 @@ public class CreateEditPlayerGUI extends Application
    @FXML private TableColumn<Player, String> noteColumn;
    
    //@FXML private MyActionListener listener;
-   //@FXML private MyListListener listListener;
+   @FXML private MyListListener listListener;
    
    
    
@@ -65,6 +68,13 @@ public class CreateEditPlayerGUI extends Application
       positionColumn.setCellValueFactory(celldata -> new SimpleStringProperty(celldata.getValue().getPosition()));
       noteColumn.setCellValueFactory(celldata -> new SimpleStringProperty( celldata.getValue().getNote()));
       
+      
+      //Edit column set to true.
+      playerTableView.setEditable(true);
+      nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+      //numberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+      positionColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+      noteColumn.setCellFactory(TextFieldTableCell.forTableColumn());
       
       newButton.setOnAction(event -> {
          newButton();
@@ -105,9 +115,59 @@ public class CreateEditPlayerGUI extends Application
       
    }
    
+   public void removeButton(ActionEvent actionEvent)
+   {
+      ObservableList<Player> allPlayer, singlePlayer;
+      allPlayer = playerTableView.getItems();
+      singlePlayer = playerTableView.getSelectionModel().getSelectedItems();
+      singlePlayer.forEach(allPlayer::remove);
+   }
+   
+   public void onEditChanged(TableColumn.CellEditEvent<Player, String> playerStringCellEditEvent)
+   {
+      Player player = playerTableView.getSelectionModel().getSelectedItem();
+      player.setName(playerStringCellEditEvent.getNewValue());
+      //player.setNumber(playerStringCellEditEvent.getNewValue());
+      player.setPosition(playerStringCellEditEvent.getNewValue());
+      player.setNote(playerStringCellEditEvent.getNewValue());
+      
+      adapter.savePlayers(playerList);
+      UpdateTableView();
+   }
+   
    public void handle(ActionEvent e)
    {
-      
+         String name = nameTextField.getText();
+         int number = Integer.parseInt(numberTextField.getText());
+         String position = positionTextField.getText();
+         String note = noteTextField.getText();
+
+         if (name.equals(""))
+         {
+            name = "?";
+         }
+
+         adapter.changeName(name, number, position, note);
+         UpdateTableView();
+         nameTextField.setText("");
+      }
+   
+   private class MyListListener implements ChangeListener<Player>
+   {
+      public void changed(ObservableValue<? extends Player> player, Player oldPlayer, Player newPlayer)
+      {
+         Player temp = playerTableView.getSelectionModel().getSelectedItem();
+        
+         if (temp != null)
+         {
+           
+            nameTextField.setText(temp.getName());
+            //numberTextField.setText(Integer.parseInt(temp.getNumber()));
+            positionTextField.setText(temp.getPosition());
+            noteTextField.setText(temp.getNote());
+            
+         }
+      }
    }
    
    public static void main(String[] args)
