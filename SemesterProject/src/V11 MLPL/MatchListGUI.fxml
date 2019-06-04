@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<Tab text="Match list" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <TableView prefHeight="200.0" prefWidth="200.0">
+         <columns>
+            <TableColumn prefWidth="256.0" text="Date" />
+            <TableColumn prefWidth="256.0" text="Opponent" />
+            <TableColumn prefWidth="256.0" text="Type" />
+            <TableColumn prefWidth="256.0" text="Substitute Players" />
+         </columns>
+      </TableView>
+   </content>
+</Tab>
